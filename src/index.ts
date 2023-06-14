@@ -56,7 +56,7 @@ const kindOrder = [
 ];
 
 const kindToLabel = (kind: SymbolKind) => {
-  const config = workspace.getConfiguration('suggest.completionItemKindLabels') as { [key: string]: string };
+  const config = workspace.getConfiguration('suggest').get('completionItemKindLabels') as { [key: string]: string };
 
   return config[kindOrder[kind]];
 };
