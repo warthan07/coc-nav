@@ -108,9 +108,9 @@ export const nav = async (): Promise<void> => {
   if (providers.length === 0) return;
   const provider = providers[0].provider;
 
-  const symbols = (
+  const symbols = ((
     (await provider.provideDocumentSymbols(document, tokenSource.token)) as ReadonlyArray<DocumentSymbol>
-  )
+  ) ?? [] )
     .map((v) => expandChildren(v))
     .flat();
 
