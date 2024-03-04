@@ -116,6 +116,7 @@ export const nav = async (): Promise<void> => {
 
   let arr: ReadonlyArray<{ name: string; kind: SymbolKind; label: string }> = [];
   for (const sym of symbols) {
+    if (sym.range === undefined) continue;
     if (positionInRange(position, sym.range) === 0) {
       arr = [...arr, { name: sym.name, kind: sym.kind, label: kindToLabel(sym.kind) }];
     }
